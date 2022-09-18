@@ -6,6 +6,7 @@ import { Input } from "./Form/input";
 import { useEffect, useState,FormEvent } from "react";
 import axios from "axios";
 
+
 interface Game {
   id: string;
   title: string;
@@ -34,18 +35,18 @@ export function CreateAdModal() {
     }
 
     try{
-    await axios.post(`http://localhost:3333/games/${data.game}/ads`),{
+    await axios.post(`http://localhost:3333/games/${data.game}/ads`,{
         
-        name: data.name,
-        yearsPlaying: Number(data.yearsPlaying),
-        discord: data.discord,
-        weekDays: weekDays.map(Number),
-        hourStart: data.hourStart,
-        hourEnd: data.hourEnd,
-        useVoiceChannel: useVoiceChannel
-        
+      name: data.name,
+      yearsPlaying: Number(data.yearsPlaying),
+      discord: data.discord,
+      weekDays: weekDays.map(Number),
+      hourStart: data.hourStart,
+      hourEnd: data.hourEnd,
+      useVoiceChannel: useVoiceChannel
       
-    }
+    
+  })
 alert('Anúncio criado com sucesso!')
   }catch(err){
     console.log(err)
